@@ -22,14 +22,14 @@ export default function Signup(){
         event.preventDefault() ;
 
         createUserWithEmailAndPassword(auth, emailAddress, password)
-        .then((result)=> 
+        .then((result)=> {
             updateProfile(result.user,{
                 displayName: firstName,
                 photoURL : Math.floor(Math.random() * 5) +1,
             }).then(()=> {
                 history(ROUTES.BROWSE);
             })
-        )
+    })
         .catch((error)=>{
             setFirstName('');
             setPassword('');
